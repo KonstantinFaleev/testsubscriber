@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/login'
+
+  get 'sessions/logout'
+
+  post 'sessions' => 'sessions#create'
+
   resources :posts
 
   get 'registration' => 'users#new', as: 'registration'

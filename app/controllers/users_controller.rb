@@ -5,9 +5,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:name, :email, :password))
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to :backtrace_cleaner
+      redirect_back(fallback_location: root_path)
     end
   end
 end
