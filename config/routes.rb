@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   post 'sessions' => 'sessions#create'
 
-  resources :posts
+  resources 'posts'
 
-  get 'registration' => 'users#new', as: 'registration'
+  get 'registration' => 'users#new'#, as: 'registration'
 
   post 'users' => 'users#create'
 
